@@ -11,11 +11,13 @@ class SLL:
     def __init__(self):
         self.head = None
     
-    def printlist(self):
+    def stringify(self):
         printdata = self.head
+        string = ""
         while printdata is not None:
-            print(printdata.data)
+            string += printdata.data
             printdata = printdata.next
+        return string
 def del_node(n):
     nex = n.next
     n.data = nex.data
@@ -29,4 +31,4 @@ def test(): #need a better written test here, right now just evaluate stdout
     list.head.next = n2
     n2.next = n3
     del_node(n2)
-    assert list.printlist() == "a c"
+    assert list.stringify() == "ac"
